@@ -5,6 +5,7 @@ export const iconMapping = {
     logout: '/assets/logout.svg',
     profile: '/assets/profile.svg',
     myDegreeLight: '/assets/my-degree-light.svg',
+    myDegreeDark: '/assets/my-degree-dark.svg',
     examsDark: '/assets/exams-dark.svg',
     examsLight: '/assets/exams-light.svg',
     collapse: '/assets/collapse.svg',
