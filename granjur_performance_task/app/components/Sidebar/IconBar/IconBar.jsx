@@ -1,33 +1,40 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import { iconMapping } from '../../../utils/icons';
+import Link from 'next/link';
+import { iconMapping } from '../../../utils/mapping';
 
 const topIcons = [
   {
     name: 'Academics',
-    icon: iconMapping['academics'],
+    defaultIcon: iconMapping['academics'],
+    activeIcon: iconMapping['academics'],
   },
   {
     name: 'Donations',
-    icon: iconMapping['donations'],
+    defaultIcon: iconMapping['donationsDark'],
+    activeIcon: iconMapping['donationsLight'],
   }
 ]
 
 const bottomIcons = [
   {
     name: 'Profile',
-    icon: iconMapping['profile'],
+    defaultIcon: iconMapping['profile'],
   },
   {
     name: 'Logout',
-    icon: iconMapping['logout'],
+    defaultIcon: iconMapping['logout'],
   }
 ]
 
-const IconBar = () => {
+const IconBar = (props) => {
+  const { isCollapsed } = props;
+  const [isHovered, setIsHovered] = useState({});
+
   return (
     <Box
       sx={{
@@ -40,6 +47,9 @@ const IconBar = () => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         boxSizing: 'border-box',
+        transform: isCollapsed ? 'translateX(-100%)' : 'translateX(0)',
+        transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)',
+        zIndex: 1,
         '&::after': {
           content: '""',
           position: 'absolute',
@@ -61,47 +71,63 @@ const IconBar = () => {
       >
         {
           topIcons.map((item, index) => (
-            <Box
+            <Link
               key={index}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '8px',
-                boxSizing: 'border-box',
-              }}
+              href="#"
+              style={{ textDecoration: 'none' }}
             >
-              <IconButton
-                aria-label={item.name}
+              <Box
                 sx={{
-                  backgroundColor: index === 0 ? '#944BF6' : '#EAEDEB',
-                  borderRadius: '16px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '8px',
                   boxSizing: 'border-box',
-                  padding: '12px',
-                  transition: 'backgroundColor 0.2s',
-                  '&:hover': {
-                    backgroundColor: index === 0 ? '#944BF6' : '#EAEDEB',
-                  },
-                  '&:active': {
-                    backgroundColor: index === 0 ? '#944BF6' : '#EAEDEB',
-                  },
                 }}
+                onMouseEnter={() => setIsHovered({ [index]: true })}
+                onMouseLeave={() => setIsHovered({ [index]: false })}
               >
-                <Image src={item.icon} alt={item.name} width={24} height={24} />
-              </IconButton>
-              <Typography
-                variant="caption"
-                sx={{
-                  color: index === 0 ? '#944BF6' : '#212121',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  lineHeight: '100%',
-                  letterSpacing: '-1.9%',
-                }}
-              >
-                {item.name}
-              </Typography>
-            </Box>
+                <Box
+                  sx={{
+                    backgroundColor:
+                      index === 0 ?
+                        '#944BF6' :
+                        isHovered[index] ? '#944BF6' : '#EAEDEB',
+                    borderRadius: '16px',
+                    boxSizing: 'border-box',
+                    padding: '12px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'background-color 0.1s',
+                  }}
+                >
+                  <Image
+                    src={isHovered[index] ? item.activeIcon : item.defaultIcon}
+                    alt={item.name}
+                    width={24}
+                    height={24}
+                  />
+                </Box>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color:
+                      index === 0 ?
+                        '#944BF6' :
+                        isHovered[index] ? '#944BF6' : '#212121',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    lineHeight: '100%',
+                    letterSpacing: '-1.9%',
+                    transition: 'color 0.1s',
+                  }}
+                >
+                  {item.name}
+                </Typography>
+              </Box>
+            </Link>
           ))
         }
       </Box>
@@ -114,47 +140,48 @@ const IconBar = () => {
       >
         {
           bottomIcons.map((item, index) => (
-            <Box
+            <Link
               key={index}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '8px',
-                boxSizing: 'border-box',
-              }}
+              href="#"
+              style={{ textDecoration: 'none' }}
             >
-              <IconButton
-                aria-label={item.name}
+              <Box
                 sx={{
-                  backgroundColor: '#EAEDEB',
-                  borderRadius: '999px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '8px',
                   boxSizing: 'border-box',
-                  padding: '10px',
-                  transition: 'backgroundColor 0.2s',
-                  '&:hover': {
-                    backgroundColor: '#EAEDEB',
-                  },
-                  '&:active': {
-                    backgroundColor: '#EAEDEB',
-                  },
                 }}
               >
-                <Image src={item.icon} alt={item.name} width={20} height={20} />
-              </IconButton>
-              <Typography
-                variant="caption"
-                sx={{
-                  color: '#484B48',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  lineHeight: '100%',
-                  letterSpacing: '-1.9%',
-                }}
-              >
-                {item.name}
-              </Typography>
-            </Box>
+                <Box
+                  sx={{
+                    backgroundColor: '#EAEDEB',
+                    borderRadius: '999px',
+                    boxSizing: 'border-box',
+                    padding: '10px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Image src={item.defaultIcon} alt={item.name} width={20} height={20} />
+                </Box>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: '#484B48',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    lineHeight: '100%',
+                    letterSpacing: '-1.9%',
+                  }}
+                >
+                  {item.name}
+                </Typography>
+              </Box>
+            </Link>
           ))
         }
       </Box>

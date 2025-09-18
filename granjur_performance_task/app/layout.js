@@ -1,4 +1,5 @@
 import "./globals.css";
+import Sidebar from './components/Sidebar/Sidebar';
 
 export const metadata = {
   title: "Granjur Performance Task",
@@ -8,9 +9,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
-        {children}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Sidebar />
+          {children}
+        </div>
       </body>
-    </html>
+    </html >
   );
 }

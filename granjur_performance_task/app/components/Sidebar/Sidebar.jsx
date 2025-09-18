@@ -1,9 +1,13 @@
-import React from 'react'
+'use client';
+
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import IconBar from './IconBar/IconBar';
 import MenuBar from './MenuBar/MenuBar';
 
 const Sidebar = () => {
+    const [isCollapsed, setIsCollapsed] = useState(false);
+
     return (
         <Box
             sx={{
@@ -12,8 +16,8 @@ const Sidebar = () => {
                 flexDirection: 'row',
             }}
         >
-            <IconBar />
-            <MenuBar />
+            <IconBar isCollapsed={isCollapsed} />
+            <MenuBar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
         </Box>
     )
 }
