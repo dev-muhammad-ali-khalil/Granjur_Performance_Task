@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import DegreeProgress from "./DegreeProgress";
 import CreditOverview from "./CreditOverview";
+import ExamStats from "./ExamStats";
 
 const GridLeft = () => {
   return (
@@ -14,6 +15,7 @@ const GridLeft = () => {
     >
       <DegreeProgress />
       <CreditOverview />
+      <ExamStats />
     </Box>
   );
 };

@@ -12,4 +12,6 @@ export const iconMapping = {
     degreeProgress: '/assets/degree-progress.svg',
     play: '/assets/play.svg',
     creditOverview: '/assets/credit-overview.svg',
+    examStats: '/assets/exam-stats.svg',
+    dropdownArrow: '/assets/dropdown-arrow.svg',
 }

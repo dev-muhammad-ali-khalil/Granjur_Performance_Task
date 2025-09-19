@@ -14,6 +14,9 @@ const Sidebar = () => {
         height: "100vh",
         display: "flex",
         flexDirection: "row",
+        position: "sticky",
+        top: 0,
+        flexShrink: 0,
       }}
     >
       <IconBar isCollapsed={isCollapsed} />
