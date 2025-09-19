@@ -57,6 +57,7 @@ const NavigationBar = () => {
               sx={{
                 color: "#2B2B2B",
                 fontSize: "14px",
+                fontFamily: "Kumbh Sans, sans-serif",
                 fontWeight: 600,
                 lineHeight: "20px",
                 letterSpacing: "0%",

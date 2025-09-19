@@ -11,4 +11,5 @@ export const iconMapping = {
     collapse: '/assets/collapse.svg',
     degreeProgress: '/assets/degree-progress.svg',
     play: '/assets/play.svg',
+    creditOverview: '/assets/credit-overview.svg',
 }

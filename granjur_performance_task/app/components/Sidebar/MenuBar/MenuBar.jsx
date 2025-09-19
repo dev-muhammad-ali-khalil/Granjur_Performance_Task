@@ -111,6 +111,7 @@ const MenuBar = (props) => {
               <Typography
                 sx={{
                   fontSize: "14px",
+                  fontFamily: "Kumbh Sans, sans-serif",
                   fontWeight: 500,
                   lineHeight: "100%",
                   letterSpacing: "-1.9%",

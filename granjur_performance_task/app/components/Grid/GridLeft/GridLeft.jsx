@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import DegreeProgress from "./DegreeProgress";
+import CreditOverview from "./CreditOverview";
 
 const GridLeft = () => {
   return (
@@ -12,6 +13,7 @@ const GridLeft = () => {
       }}
     >
       <DegreeProgress />
+      <CreditOverview />
     </Box>
   );
 };

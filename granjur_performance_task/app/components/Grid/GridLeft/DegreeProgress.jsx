@@ -12,6 +12,7 @@ const DegreeProgress = () => {
         padding: "20px 20px 24px 20px",
         backgroundColor: "#FFFFFF",
         borderRadius: "24px",
+        boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
     >
       <Box
@@ -51,6 +52,7 @@ const DegreeProgress = () => {
             sx={{
               color: "#2B2B2B",
               fontSize: "16px",
+              fontFamily: "Kumbh Sans, sans-serif",
               fontWeight: 600,
               lineHeight: "24px",
               letterSpacing: "-0.6%",
@@ -95,6 +97,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#2B2B2B",
                     fontSize: "14px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 500,
                     lineHeight: "20px",
                     letterSpacing: "0%",
@@ -114,6 +117,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#484B48",
                     fontSize: "14px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 600,
                     lineHeight: "24px",
                     letterSpacing: "-0.6%",
@@ -126,6 +130,7 @@ const DegreeProgress = () => {
                     sx={{
                       color: "#944BF6",
                       fontSize: "24px",
+                      fontFamily: "Kumbh Sans, sans-serif",
                       fontWeight: 600,
                       lineHeight: "32px",
                       letterSpacing: "-0.6%",
@@ -138,6 +143,7 @@ const DegreeProgress = () => {
                     sx={{
                       color: "#484B48",
                       fontSize: "14px",
+                      fontFamily: "Kumbh Sans, sans-serif",
                       fontWeight: 600,
                       lineHeight: "32px",
                       letterSpacing: "-0.6%",
@@ -174,6 +180,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#484B48",
                     fontSize: "14px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 600,
                     lineHeight: "24px",
                     letterSpacing: "-0.6%",
@@ -186,6 +193,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#2B2B2B",
                     fontSize: "24px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 600,
                     lineHeight: "32px",
                     letterSpacing: "-1.9%",
@@ -213,6 +221,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#484B48",
                     fontSize: "14px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 600,
                     lineHeight: "24px",
                     letterSpacing: "-0.6%",
@@ -225,6 +234,7 @@ const DegreeProgress = () => {
                   sx={{
                     color: "#2B2B2B",
                     fontSize: "24px",
+                    fontFamily: "Kumbh Sans, sans-serif",
                     fontWeight: 600,
                     lineHeight: "32px",
                     letterSpacing: "-1.9%",
@@ -242,7 +252,7 @@ const DegreeProgress = () => {
             }}
           >
             <img
-              src="./assets/video-thumbnail.png"
+              src="/assets/video-thumbnail.png"
               alt="Video Thumbnail"
               width="184px"
               height="104px"

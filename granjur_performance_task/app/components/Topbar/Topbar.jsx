@@ -37,6 +37,7 @@ const Topbar = () => {
             sx={{
               color: "#2B2B2B",
               fontSize: "18px",
+              fontFamily: "Kumbh Sans, sans-serif",
               fontWeight: 500,
               lineHeight: "24px",
               letterSpacing: "-1.4%",
