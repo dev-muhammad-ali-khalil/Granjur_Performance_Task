@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Topbar from "../Topbar/Topbar";
 import NavigationBar from "../NavigationBar/NavigationBar";
+import GridView from "../Grid/Grid";
 
 const MainArea = () => {
   return (
@@ -14,6 +15,7 @@ const MainArea = () => {
     >
       <Topbar />
       <NavigationBar />
+      <GridView />
     </Box>
   );
 };

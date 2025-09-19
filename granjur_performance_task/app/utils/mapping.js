@@ -9,4 +9,6 @@ export const iconMapping = {
     examsDark: '/assets/exams-dark.svg',
     examsLight: '/assets/exams-light.svg',
     collapse: '/assets/collapse.svg',
+    degreeProgress: '/assets/degree-progress.svg',
+    play: '/assets/play.svg',
 }
