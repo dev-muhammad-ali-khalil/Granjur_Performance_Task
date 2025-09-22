@@ -8,6 +8,20 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import {
+  ResponsiveContainer,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+  Rectangle,
+  ReferenceLine,
+  Customized,
+  LabelList,
+} from "recharts";
 
 const menuOptions = [
   {
@@ -19,6 +33,97 @@ const menuOptions = [
     value: "other",
   },
 ];
+
+const stats = [
+  {
+    label: "Total Attempts",
+    count: 249,
+    weightage: 2.1,
+  },
+  {
+    label: "Passed",
+    count: 84,
+    weightage: 2.1,
+  },
+  {
+    label: "Failed",
+    count: 24,
+    weightage: 2.1,
+  },
+];
+
+const chartData = [
+  {
+    name: "Week 1",
+    failedExams: 18,
+    passedExams: 70,
+  },
+  {
+    name: "Week 2",
+    failedExams: 42,
+    passedExams: 56,
+  },
+  {
+    name: "Week 3",
+    failedExams: 35,
+    passedExams: 73,
+  },
+  {
+    name: "Week 4",
+    failedExams: 30,
+    passedExams: 51,
+  },
+];
+
+const ticks = [0, 20, 40, 60, 77.5];
+
+// Bars Vertical Position
+const ShiftedBar = (props) => {
+  const shift = 12;
+  return (
+    <g transform={`translate(0, ${shift})`}>
+      <Rectangle {...props} />
+    </g>
+  );
+};
+
+// Customized Legend
+const renderLegend = (props) => {
+  const { payload } = props;
+
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center", gap: "16px" }}>
+      {payload.map((entry, index) => (
+        <Box
+          key={`item-${index}`}
+          sx={{ display: "flex", alignItems: "center", gap: "6px" }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              backgroundColor: entry.color,
+            }}
+          />
+          <Typography
+            sx={{
+              color: "#2B2B2B",
+              fontSize: "14px",
+              fontFamily: "Kumbh Sans, sans-serif",
+              fontWeight: 500,
+              lineHeight: "100%",
+              letterSpacing: "-0.6%",
+            }}
+          >
+            {entry.value === "failedExams" ? "Failed Exams" : "Passed Exams"}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+};
 
 const DropDownArrow = (props) => (
   <svg
@@ -175,6 +280,300 @@ const ExamStats = () => {
           </Box>
         </Box>
         {/* Body */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "12px",
+          }}
+        >
+          {stats.map((item, index) => (
+            <Box
+              key={index}
+              sx={{
+                backgroundColor: "#F5F6F5",
+                borderRadius: "16px",
+                padding: "12px 12px 16px 12px",
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#2B2B2B",
+                  fontSize: "14px",
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  fontWeight: 600,
+                  lineHeight: "24px",
+                  letterSpacing: "-0.6%",
+                }}
+              >
+                {item.label}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: "#2B2B2B",
+                    fontSize: "16px",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                    letterSpacing: "-1.4%",
+                  }}
+                >
+                  {item.count}
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "end",
+                    alignItems: "center",
+                    gap: "4px",
+                    width: "79px",
+                    height: "100%",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#2B2B2B",
+                      fontSize: "14px",
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                      letterSpacing: "-0.6%",
+                    }}
+                  >
+                    {item.weightage}%
+                  </Typography>
+                  <Box
+                    style={{
+                      height: "100%",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <img src={iconMapping["grow"]} />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+        {/* Graph */}
+        <Box>
+          <ResponsiveContainer width="100%" height={373}>
+            <BarChart
+              data={chartData}
+              margin={{
+                top: 0,
+                right: 0,
+                left: -30,
+                bottom: 0,
+              }}
+              barGap={48}
+            >
+              <CartesianGrid vertical={false} horizontal={false} />
+              {/* Background */}
+              <Customized
+                component={({ xAxisMap, yAxisMap, offset }) => {
+                  const xAxis = xAxisMap[0];
+                  const yAxis = yAxisMap[0];
+                  const xScale = xAxis.scale;
+                  const yMax = yAxis.scale.domain()[1];
+
+                  return (
+                    <g>
+                      {chartData.map((entry, index) => {
+                        if (index % 2 === 1) {
+                          const x = xScale(entry.name);
+                          const bandWidth = xScale.bandwidth();
+
+                          const extraForLabels = 42;
+                          const y = yAxis.scale(yMax);
+                          const height = offset.height + extraForLabels;
+
+                          return (
+                            <rect
+                              key={`bg-${index}`}
+                              x={x}
+                              y={y}
+                              width={bandWidth}
+                              height={height}
+                              fill="#F5F6F5"
+                              rx={12}
+                              ry={12}
+                            />
+                          );
+                        }
+                        return null;
+                      })}
+                    </g>
+                  );
+                }}
+              />
+              <XAxis
+                dataKey="name"
+                padding={{
+                  left: 0,
+                  right: 0,
+                }}
+                axisLine={false}
+                tickLine={false}
+                tick={{
+                  dy: 14,
+                  style: {
+                    color: "#2B2B2B",
+                    fontSize: "16px",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontWeight: 500,
+                    lineHeight: "16px",
+                    letterSpacing: "0%",
+                  },
+                }}
+              />
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                tick={{
+                  fill: "#484B48",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  lineHeight: "16px",
+                  letterSpacing: "0%",
+                }}
+              />
+              <Tooltip
+                cursor={false}
+                content={({ active, payload }) => {
+                  if (!active || !payload || !payload.length) return null;
+
+                  return (
+                    <Box
+                      style={{
+                        background: "#ffffff",
+                        padding: "12px",
+                        borderRadius: "12px",
+                        boxShadow: "0px 2px 16px 0px #EAEDEB",
+                      }}
+                    >
+                      {payload.map((entry) => {
+                        let label = entry.name;
+                        let value = entry.value;
+
+                        if (entry.dataKey === "failedExams")
+                          label = "Failed Exams";
+                        if (entry.dataKey === "passedExams")
+                          label = "Passed Exams";
+
+                        return (
+                          <Box
+                            key={entry.dataKey}
+                            sx={{
+                              display: "flex",
+                              gap: "8px",
+                              alignItems: "center",
+                              marginY: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                display: "inline-block",
+                                width: "10px",
+                                height: "10px",
+                                borderRadius: "50%",
+                                background: entry.fill,
+                              }}
+                            ></span>
+                            <Typography
+                              sx={{
+                                color: "#2B2B2B",
+                                fontSize: "14px",
+                                fontFamily: "Kumbh Sans, sans-serif",
+                                fontWeight: 500,
+                                lineHeight: "100%",
+                                letterSpacing: "0%",
+                              }}
+                            >
+                              {label}: {value}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Box>
+                  );
+                }}
+              />
+              <Legend
+                content={renderLegend}
+                verticalAlign="bottom"
+                wrapperStyle={{
+                  paddingTop: "38px",
+                }}
+              />
+              {ticks.map((t, i) => (
+                <ReferenceLine
+                  key={`grid-${i}`}
+                  y={t}
+                  stroke="#EAEDEB"
+                  strokeWidth={1}
+                  {...(i % 2 === 0 ? { strokeDasharray: "3 3" } : 0)}
+                />
+              ))}
+              <Bar
+                dataKey="failedExams"
+                fill="#CB3A32"
+                barSize={9.5}
+                radius={[99, 99, 99, 99]}
+                shape={<ShiftedBar />}
+              >
+                <LabelList
+                  dataKey="failedExams"
+                  position="top"
+                  dy={4}
+                  style={{
+                    fill: "#CB3A32",
+                    fontSize: "12px",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontWeight: 400,
+                    lineHeight: "16px",
+                    letterSpacing: "0%",
+                  }}
+                />
+              </Bar>
+              <Bar
+                dataKey="passedExams"
+                fill="#4CA054"
+                barSize={9.5}
+                radius={[99, 99, 99, 99]}
+                shape={<ShiftedBar />}
+              >
+                <LabelList
+                  dataKey="passedExams"
+                  position="top"
+                  dy={4}
+                  style={{
+                    fill: "#4CA054",
+                    fontSize: "12px",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontWeight: 400,
+                    lineHeight: "16px",
+                    letterSpacing: "0%",
+                  }}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </Box>
       </Box>
     </Box>
   );
