@@ -12,10 +12,10 @@ const GridView = () => {
       }}
     >
       <Grid container spacing="16px">
-        <Grid size={6}>
+        <Grid size={8}>
           <GridLeft />
         </Grid>
-        <Grid size={6}>
+        <Grid size={4}>
           <GridRight />
         </Grid>
       </Grid>

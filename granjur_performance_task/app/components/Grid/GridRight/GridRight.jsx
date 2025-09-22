@@ -1,5 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import Exams from "./Exams";
 
 const GridRight = () => {
   return (
@@ -10,7 +11,7 @@ const GridRight = () => {
         gap: "16px",
       }}
     >
-      Grid Right
+      <Exams />
     </Box>
   );
 };

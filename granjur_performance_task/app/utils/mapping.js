@@ -14,5 +14,9 @@ export const iconMapping = {
     creditOverview: '/assets/credit-overview.svg',
     examStats: '/assets/exam-stats.svg',
     dropdownArrow: '/assets/dropdown-arrow.svg',
-    grow: '/assets/grow.svg'
-}
+    grow: '/assets/grow.svg',
+    arrowRight: 'assets/arrow-right.svg',
+    calendar: 'assets/calendar.svg',
+    star: 'assets/star.svg',
+    speedoMeter: 'assets/speedometer.svg',
+};
