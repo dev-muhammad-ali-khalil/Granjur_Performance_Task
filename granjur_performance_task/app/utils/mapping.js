@@ -15,8 +15,11 @@ export const iconMapping = {
     examStats: '/assets/exam-stats.svg',
     dropdownArrow: '/assets/dropdown-arrow.svg',
     grow: '/assets/grow.svg',
-    arrowRight: 'assets/arrow-right.svg',
-    calendar: 'assets/calendar.svg',
-    star: 'assets/star.svg',
-    speedoMeter: 'assets/speedometer.svg',
+    arrowRight: '/assets/arrow-right.svg',
+    calendar: '/assets/calendar.svg',
+    calendarDark: '/assets/calendar-dark.svg',
+    star: '/assets/star.svg',
+    starOutline: '/assets/star-outline.svg',
+    speedoMeter: '/assets/speedometer.svg',
+    user: '/assets/user.svg'
 };

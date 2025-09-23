@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Exams from "./Exams";
+import CreditHistory from "./CreditHistory";
 
 const GridRight = () => {
   return (
@@ -12,6 +13,7 @@ const GridRight = () => {
       }}
     >
       <Exams />
+      <CreditHistory />
     </Box>
   );
 };
