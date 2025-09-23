@@ -42,23 +42,21 @@ const CreditHistory = () => {
   return (
     <Box
       sx={{
-        padding: "20px 20px 24px 20px",
-        backgroundColor: "#FFFFFF",
-        borderRadius: "24px",
-        boxShadow: "0px 2px 16px 0px #EAEDEB",
         display: "flex",
+        padding: "20px 20px 24px 20px",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "16px",
         alignSelf: "stretch",
+        borderRadius: "24px",
+        backgroundColor: "#FFFFFF",
+        boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
     >
       {/* ----- Header ----- */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
           alignItems: "center",
           gap: "12px",
           alignSelf: "stretch",
@@ -67,20 +65,19 @@ const CreditHistory = () => {
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
             alignItems: "center",
             gap: "12px",
+            flex: "1 0 0",
           }}
         >
           <Box
             sx={{
-              backgroundColor: "#EAEDEB",
-              borderRadius: "12px",
-              padding: "6px",
               display: "flex",
-              justifyContent: "center",
+              padding: "6px",
               alignItems: "center",
               gap: "8px",
+              borderRadius: "12px",
+              backgroundColor: "#EAEDEB",
             }}
           >
             <Image
@@ -94,10 +91,10 @@ const CreditHistory = () => {
             sx={{
               color: "#2B2B2B",
               textAlign: "center",
-              fontSize: "16px",
               fontFamily: "Kumbh Sans, sans-serif",
-              fontWeight: 600,
+              fontSize: "16px",
               fontStyle: "normal",
+              fontWeight: 600,
               lineHeight: "24px",
               letterSpacing: "-0.6%",
             }}
@@ -108,12 +105,14 @@ const CreditHistory = () => {
         <Link href="#">
           <Box
             sx={{
-              backgroundColor: "#EBDEFF",
-              borderRadius: "20px",
-              padding: "8px",
               display: "flex",
+              padding: "8px",
               justifyContent: "center",
               alignItems: "center",
+              gap: "8px",
+              aspectRatio: "1/1",
+              borderRadius: "20px",
+              backgroundColor: "#E9DBFF",
             }}
           >
             <Image
@@ -126,76 +125,139 @@ const CreditHistory = () => {
         </Link>
       </Box>
       {/* ----- Body ----- */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "12px",
-          alignSelf: "stretch",
-        }}
-      >
-        {creditListing.map((item, index) => (
+      {creditListing.map((item, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: "flex",
+            padding: "12px 12px 16px 12px",
+            alignItems: "flex-end",
+            gap: "12px",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            backgroundColor: "#F5F6F5",
+          }}
+        >
+          <img src={item.source} alt={item.title} />
           <Box
-            key={index}
             sx={{
               display: "flex",
-              padding: "12px 12px 16px 12px",
-              alignItems: "flex-end",
-              gap: "12px",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              backgroundColor: "#F5F6F5",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              flex: "1 0 0",
             }}
           >
-            <img src={item.source} alt={item.title} />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              {item.tags.map((subItem, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    display: "flex",
+                    padding: "2px 6px",
+                    alignItems: "center",
+                    gap: "2px",
+                    borderRadius: "999px",
+                    backgroundColor: subItem.toLowerCase().includes("live")
+                      ? "#FBBF24"
+                      : subItem.toLowerCase().includes("person")
+                      ? "#944BF6"
+                      : subItem.toLowerCase().includes("weekend")
+                      ? "#E9DBFF"
+                      : subItem.toLowerCase().includes("demand")
+                      ? "#3267E3"
+                      : "#944BF6",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: subItem.toLowerCase().includes("live")
+                        ? "#212121"
+                        : subItem.toLowerCase().includes("person")
+                        ? "#FFFFFF"
+                        : subItem.toLowerCase().includes("weekend")
+                        ? "#944BF6"
+                        : subItem.toLowerCase().includes("demand")
+                        ? "#FFFFFF"
+                        : "#FFFFFF",
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "12px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "16px",
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {subItem}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "6px",
-                flex: "1 0 0",
+                gap: "8px",
+                alignSelf: "stretch",
               }}
             >
               <Box
                 sx={{
                   display: "flex",
-                  alignItems: "center",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
                   gap: "4px",
+                  alignSelf: "stretch",
                 }}
               >
-                {item.tags.map((subItem, index) => (
+                <Typography
+                  sx={{
+                    color: "#2B2B2B",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                    letterSpacing: "-0.6%",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                  }}
+                >
                   <Box
-                    key={index}
                     sx={{
                       display: "flex",
                       padding: "2px 6px",
                       alignItems: "center",
                       gap: "2px",
                       borderRadius: "999px",
-                      backgroundColor: subItem.toLowerCase().includes("live")
-                        ? "#FBBF24"
-                        : subItem.toLowerCase().includes("person")
-                        ? "#944BF6"
-                        : subItem.toLowerCase().includes("weekend")
-                        ? "#E9DBFF"
-                        : subItem.toLowerCase().includes("demand")
-                        ? "#3267E3"
-                        : "#944BF6",
+                      backgroundColor: "#FFFFFF",
                     }}
                   >
+                    <Image
+                      src={iconMapping["user"]}
+                      alt="User"
+                      width={12}
+                      height={12}
+                    />
                     <Typography
                       sx={{
-                        color: subItem.toLowerCase().includes("live")
-                          ? "#212121"
-                          : subItem.toLowerCase().includes("person")
-                          ? "#FFFFFF"
-                          : subItem.toLowerCase().includes("weekend")
-                          ? "#944BF6"
-                          : subItem.toLowerCase().includes("demand")
-                          ? "#FFFFFF"
-                          : "#FFFFFF",
+                        color: "#212121",
                         fontFamily: "Kumbh Sans, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
@@ -204,124 +266,9 @@ const CreditHistory = () => {
                         letterSpacing: "0%",
                       }}
                     >
-                      {subItem}
+                      {item.user}
                     </Typography>
                   </Box>
-                ))}
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "4px",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "#2B2B2B",
-                      fontFamily: "Kumbh Sans, sans-serif",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "24px",
-                      letterSpacing: "-0.6%",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      alignSelf: "stretch",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        padding: "2px 6px",
-                        alignItems: "center",
-                        gap: "2px",
-                        borderRadius: "999px",
-                        backgroundColor: "#FFFFFF",
-                      }}
-                    >
-                      <Image
-                        src={iconMapping["user"]}
-                        alt="User"
-                        width={12}
-                        height={12}
-                      />
-                      <Typography
-                        sx={{
-                          color: "#2B2B2B",
-                          fontFamily: "Kumbh Sans, sans-serif",
-                          fontSize: "12px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "16px",
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {item.user}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        padding: "2px 6px",
-                        alignItems: "center",
-                        gap: "2px",
-                        borderRadius: "999px",
-                        border: "0.5px solid #EAEDEB",
-                        backgroundColor: "#FFFFFF",
-                      }}
-                    >
-                      <Image
-                        src={iconMapping["star"]}
-                        alt="Star"
-                        width={12}
-                        height={12}
-                      />
-                      <Typography
-                        sx={{
-                          color: "#2B2B2B",
-                          fontFamily: "Kumbh Sans, sans-serif",
-                          fontSize: "12px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "16px",
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {item.credits}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-                <Divider
-                  orientation="horizontal"
-                  sx={{ borderColor: "#EAEDEB" }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                  }}
-                >
                   <Box
                     sx={{
                       display: "flex",
@@ -333,33 +280,9 @@ const CreditHistory = () => {
                       backgroundColor: "#FFFFFF",
                     }}
                   >
-                    <Typography
-                      sx={{
-                        color: "#2B2B2B",
-                        fontFamily: "Kumbh Sans, sans-serif",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "16px",
-                        letterSpacing: "0%",
-                      }}
-                    >
-                      {item.subject}
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      padding: "2px 6px",
-                      alignItems: "center",
-                      gap: "2px",
-                      borderRadius: "999px",
-                      border: "0.5px solid #EAEDEB",
-                    }}
-                  >
                     <Image
-                      src={iconMapping["calendarDark"]}
-                      alt="Calendar Dark"
+                      src={iconMapping["star"]}
+                      alt="Star"
                       width={12}
                       height={12}
                     />
@@ -374,15 +297,87 @@ const CreditHistory = () => {
                         letterSpacing: "0%",
                       }}
                     >
-                      {item.date}
+                      {item.credits}
                     </Typography>
                   </Box>
                 </Box>
               </Box>
+              <Divider
+                orientation="horizontal"
+                sx={{
+                  borderWidth: "1px",
+                  borderColor: "#EAEDEB",
+                  alignSelf: "stretch",
+                }}
+              />
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    padding: "2px 6px",
+                    alignItems: "center",
+                    gap: "2px",
+                    borderRadius: "999px",
+                    border: "0.5px solid #EAEDEB",
+                    backgroundColor: "#FFFFFF",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#2B2B2B",
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "12px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "16px",
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {item.subject}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    padding: "2px 6px",
+                    alignItems: "center",
+                    gap: "2px",
+                    borderRadius: "999px",
+                    border: "0.5px solid #EAEDEB",
+                  }}
+                >
+                  <Image
+                    src={iconMapping["calendarDark"]}
+                    alt="Calendar Dark"
+                    width={12}
+                    height={12}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#2B2B2B",
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "12px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "16px",
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {item.date}
+                  </Typography>
+                </Box>
+              </Box>
             </Box>
           </Box>
-        ))}
-      </Box>
+        </Box>
+      ))}
     </Box>
   );
 };
