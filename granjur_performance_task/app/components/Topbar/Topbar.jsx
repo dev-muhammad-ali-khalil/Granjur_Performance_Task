@@ -8,23 +8,29 @@ const Topbar = () => {
   return (
     <Box
       sx={{
-        padding: "12px 16px",
+        display: "flex",
+        padding: "12px 24px",
+        justifyContent: "space-between",
+        alignItems: "center",
+        alignSelf: "stretch",
+        backgroundColor: "#F5F6F5",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "start",
+          alignItems: "center",
+          gap: "16px",
+          flex: "1 0 0",
         }}
       >
         <Box
           sx={{
-            padding: "8px 12px",
             display: "flex",
-            flexDirection: "row",
+            padding: "0 12px",
             alignItems: "center",
             gap: "8px",
+            alignSelf: "stretch",
           }}
         >
           <Image
@@ -36,8 +42,9 @@ const Topbar = () => {
           <Typography
             sx={{
               color: "#2B2B2B",
-              fontSize: "18px",
               fontFamily: "Kumbh Sans, sans-serif",
+              fontSize: "18px",
+              fontStyle: "normal",
               fontWeight: 500,
               lineHeight: "24px",
               letterSpacing: "-1.4%",

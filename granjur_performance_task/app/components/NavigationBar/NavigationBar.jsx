@@ -21,33 +21,38 @@ const NavigationBar = () => {
   return (
     <Box
       sx={{
-        padding: "12px 16px 8px 16px",
-        boxSizing: "border-box",
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "start",
-        width: "100%",
+        padding: "12px 24px 0px 24px",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "20px",
+        alignSelf: "stretch",
       }}
     >
       <Box
         sx={{
-          backgroundColor: "#EAEDEB",
-          padding: "4px",
-          borderRadius: "24px",
-          boxSizing: "border-box",
           display: "flex",
-          flexDirection: "row",
+          width: "600px",
+          padding: "4px",
+          alignItems: "center",
           gap: "4px",
+          borderRadius: "24px",
+          backgroundColor: "#EAEDEB",
         }}
       >
         {menuItems.map((item, index) => (
           <Box
             key={index}
             sx={{
-              backgroundColor: index === 0 ? "#FFFFFF" : "transparent",
-              padding: "6px 25px",
-              boxSizing: "border-box",
+              display: "flex",
+              height: "32px",
+              padding: "0px 8px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "8px",
+              flex: "1 0 0",
               borderRadius: "16px",
+              backgroundColor: index === 0 ? "#FFFFFF" : "transparent",
               cursor: "pointer",
               transition: "background-color 0.1s",
               "&:hover": { backgroundColor: "#FFFFFF" },
@@ -56,8 +61,9 @@ const NavigationBar = () => {
             <Typography
               sx={{
                 color: "#2B2B2B",
-                fontSize: "14px",
                 fontFamily: "Kumbh Sans, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
                 fontWeight: 600,
                 lineHeight: "20px",
                 letterSpacing: "0%",

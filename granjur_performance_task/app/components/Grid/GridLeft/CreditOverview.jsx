@@ -54,36 +54,42 @@ const CreditOverview = () => {
   return (
     <Box
       sx={{
+        display: "flex",
         padding: "20px 20px 24px 20px",
-        backgroundColor: "#FFFFFF",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "20px",
+        alignSelf: "stretch",
         borderRadius: "24px",
+        backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
     >
+      {/* ----- Header ----- */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          gap: "20px",
+          alignItems: "center",
+          gap: "12px",
+          alignSelf: "stretch",
         }}
       >
-        {/* ----- Header ----- */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
             alignItems: "center",
             gap: "12px",
+            flex: "1 0 0",
           }}
         >
           <Box
             sx={{
-              backgroundColor: "#EAEDEB",
-              borderRadius: "12px",
-              padding: "6px",
               display: "flex",
-              justifyContent: "center",
+              padding: "6px",
               alignItems: "center",
+              gap: "8px",
+              borderRadius: "12px",
+              backgroundColor: "#EAEDEB",
             }}
           >
             <Image
@@ -96,8 +102,10 @@ const CreditOverview = () => {
           <Typography
             sx={{
               color: "#2B2B2B",
-              fontSize: "16px",
+              textAlign: "center",
               fontFamily: "Kumbh Sans, sans-serif",
+              fontSize: "16px",
+              fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "24px",
               letterSpacing: "-0.6%",
@@ -106,116 +114,141 @@ const CreditOverview = () => {
             Credit Overview
           </Typography>
         </Box>
-        {/* Body */}
-        <Grid container spacing="12px">
-          {subjects.map((item, index) => (
-            <Grid key={index} size={3}>
+      </Box>
+      {/* Body */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          alignContent: "center",
+          gap: "12px",
+          alignSelf: "stretch",
+          flexWrap: "wrap",
+        }}
+      >
+        {subjects.map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: "flex",
+              width: "128px",
+              minWidth: "128px",
+              padding: "12px 24px 16px 12px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "4px",
+              borderRadius: "12px",
+              backgroundColor: "#F5F6F5",
+              boxSizing: "border-box",
+            }}
+          >
+            <Typography
+              sx={{
+                color: "#2B2B2B",
+                fontFamily: "Kumbh Sans, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "24px",
+                letterSpacing: "-1.4%",
+                alignSelf: "stretch",
+              }}
+            >
+              {item.name}
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "4px",
+              }}
+            >
               <Box
                 sx={{
-                  backgroundColor: "#F5F6F5",
-                  borderRadius: "12px",
-                  padding: "12px 12px 16px 12px",
-                  boxSizing: "border-box",
                   display: "flex",
-                  flexDirection: "column",
+                  alignItems: "center",
                   gap: "4px",
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#2B2B2B",
-                    fontSize: "14px",
-                    fontFamily: "Kumbh Sans, sans-serif",
-                    fontWeight: 600,
-                    lineHeight: "24px",
-                    letterSpacing: "-1.4%",
-                  }}
-                >
-                  {item.name}
-                </Typography>
                 <Box
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "4px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "end",
-                      gap: "4px",
-                    }}
-                  >
-                    <Box>
-                      <Typography
-                        sx={{
-                          color: "#944BF6",
-                          fontSize: "24px",
-                          fontFamily: "Kumbh Sans, sans-serif",
-                          fontWeight: 600,
-                          lineHeight: "24px",
-                          letterSpacing: "-1.9%",
-                          display: "inline-block",
-                        }}
-                      >
-                        {item.creditsConsumed}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          color: "#2B2B2B",
-                          fontFamily: "Inter, sans-serif",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "24px",
-                          letterSpacing: "0.6%",
-                          display: "inline-block",
-                        }}
-                      >
-                        /{item.totalCredits}
-                      </Typography>
-                    </Box>
-                    <Typography
-                      sx={{
-                        color: "#8B8C8B",
-                        fontSize: "12px",
-                        fontFamily: "Kumbh Sans, sans-serif",
-                        fontWeight: 400,
-                        lineHeight: "16px",
-                        letterSpacing: "0%",
-                        marginBottom: "2.9px",
-                      }}
-                    >
-                      Credits
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    backgroundColor: "#FFFFFF",
-                    padding: "2px 6px",
-                    borderRadius: "999px",
-                    width: "fit-content",
+                    display: "inline-block",
                   }}
                 >
                   <Typography
                     sx={{
-                      color: "#2B2B2B",
-                      fontSize: "12px",
+                      color: "#944BF6",
                       fontFamily: "Kumbh Sans, sans-serif",
-                      fontWeight: 500,
-                      lineHeight: "16px",
-                      letterSpacing: "0%",
+                      fontSize: "24px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "32px",
+                      letterSpacing: "-1.9%",
+                      display: "inline-block",
                     }}
                   >
-                    {item.courses} Courses
+                    {item.creditsConsumed}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#2B2B2B",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "24px",
+                      letterSpacing: "0.6%",
+                      textTransform: "uppercase",
+                      display: "inline-block",
+                    }}
+                  >
+                    /{item.totalCredits}
                   </Typography>
                 </Box>
+                <Typography
+                  sx={{
+                    color: "#8B8C8B",
+                    textAlign: "center",
+                    fontFamily: "Kumbh Sans, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "16px",
+                    letterSpacing: "0%",
+                    marginBottom: "-9px",
+                  }}
+                >
+                  Credits
+                </Typography>
               </Box>
-            </Grid>
-          ))}
-        </Grid>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                padding: "2px 6px",
+                alignItems: "center",
+                gap: "2px",
+                borderRadius: "999px",
+                backgroundColor: "#FFFFFF",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#2B2B2B",
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "16px",
+                  letterSpacing: "0%",
+                }}
+              >
+                {item.courses} Courses
+              </Typography>
+            </Box>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

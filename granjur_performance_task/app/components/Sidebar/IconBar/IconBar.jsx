@@ -61,6 +61,7 @@ const IconBar = (props) => {
         },
       }}
     >
+      {/* Top Icons */}
       <Box
         sx={{
           display: "flex",
@@ -116,6 +117,7 @@ const IconBar = (props) => {
                       ? "#944BF6"
                       : "#212121",
                   fontSize: "12px",
+                  fontStyle: "normal",
                   fontFamily: "Kumbh Sans, sans-serif",
                   fontWeight: 600,
                   lineHeight: "100%",
@@ -129,6 +131,7 @@ const IconBar = (props) => {
           </Link>
         ))}
       </Box>
+      {/* Bottom Icons */}
       <Box
         sx={{
           display: "flex",
@@ -171,6 +174,7 @@ const IconBar = (props) => {
                 sx={{
                   color: "#484B48",
                   fontSize: "12px",
+                  fontStyle: "normal",
                   fontFamily: "Kumbh Sans, sans-serif",
                   fontWeight: 600,
                   lineHeight: "100%",

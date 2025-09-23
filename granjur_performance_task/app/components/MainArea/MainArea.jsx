@@ -10,11 +10,25 @@ const MainArea = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        width: "100%",
+        alignItems: "center",
+        flex: "1 0 0",
       }}
     >
-      <Topbar />
-      <NavigationBar />
+      {/* Top Bar + Navigation Bar */}
+      <Box
+        sx={{
+          display: "flex",
+          paddingBottom: "8px",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
+          backgroundColor: "#F5F6F5",
+        }}
+      >
+        <Topbar />
+        <NavigationBar />
+      </Box>
+      {/* Main Area */}
       <GridView />
     </Box>
   );

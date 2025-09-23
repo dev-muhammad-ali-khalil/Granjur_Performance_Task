@@ -92,11 +92,25 @@ const renderLegend = (props) => {
   const { payload } = props;
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", gap: "16px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-end",
+        alignContent: "flex-end",
+        gap: "16px",
+        alignSelf: "stretch",
+        flexWrap: "wrap",
+      }}
+    >
       {payload.map((entry, index) => (
         <Box
           key={`item-${index}`}
-          sx={{ display: "flex", alignItems: "center", gap: "6px" }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+          }}
         >
           <span
             style={{
@@ -110,8 +124,9 @@ const renderLegend = (props) => {
           <Typography
             sx={{
               color: "#2B2B2B",
-              fontSize: "14px",
               fontFamily: "Kumbh Sans, sans-serif",
+              fontSize: "14px",
+              fontStyle: "normal",
               fontWeight: 500,
               lineHeight: "100%",
               letterSpacing: "-0.6%",
@@ -151,43 +166,50 @@ const ExamStats = () => {
   return (
     <Box
       sx={{
+        display: "flex",
         padding: "20px 20px 24px 20px",
-        backgroundColor: "#FFFFFF",
+        flexDirection: "column",
+        gap: "16px",
+        alignSelf: "stretch",
         borderRadius: "24px",
+        backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
     >
+      {/* ----- Header ----- */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
+          alignItems: "flex-start",
           gap: "16px",
+          alignSelf: "stretch",
         }}
       >
-        {/* ----- Header ----- */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "12px",
+            flex: "1 0 0",
+            alignSelf: "stretch",
           }}
         >
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
               alignItems: "center",
               gap: "12px",
+              flex: "1 0 0",
             }}
           >
             <Box
               sx={{
-                backgroundColor: "#EAEDEB",
-                borderRadius: "12px",
-                padding: "6px",
                 display: "flex",
-                justifyContent: "center",
+                padding: "6px",
                 alignItems: "center",
+                gap: "8px",
+                borderRadius: "12px",
+                backgroundColor: "#EAEDEB",
               }}
             >
               <Image
@@ -200,8 +222,10 @@ const ExamStats = () => {
             <Typography
               sx={{
                 color: "#2B2B2B",
-                fontSize: "16px",
+                textAlign: "center",
                 fontFamily: "Kumbh Sans, sans-serif",
+                fontSize: "16px",
+                fontStyle: "normal",
                 fontWeight: 600,
                 lineHeight: "24px",
                 letterSpacing: "-0.6%",
@@ -210,101 +234,119 @@ const ExamStats = () => {
               Exam Stats
             </Typography>
           </Box>
-          <Box
-            sx={{
-              width: "200px",
-              border: "0.5px solid #EAEDEB",
-              padding: "8px 16px 4px 16px",
-              boxSizing: "border-box",
-              borderRadius: "999px",
-            }}
-          >
-            <FormControl fullWidth>
-              <Select
-                id="exam-stats-select"
-                value={option}
-                variant="standard"
-                disableUnderline
-                IconComponent={DropDownArrow}
-                sx={{
-                  "& .MuiSelect-select": {
-                    padding: 0,
-                    minHeight: "unset !important",
-                    color: "#2B2B2B",
-                    fontSize: "14px",
-                    fontFamily: "Kumbh Sans, sans-serif",
-                    fontWeight: 500,
-                    lineHeight: "16px",
-                    letterSpacing: "-0%",
-                  },
-                  "& .MuiSelect-icon": {
-                    top: "30%",
-                  },
-                }}
-                onChange={handleChange}
-                MenuProps={{
-                  PaperProps: {
-                    sx: {
-                      borderRadius: "10px",
-                      boxShadow: "0px 2px 16px 0px #EAEDEB",
-                      "& .MuiList-root": {
-                        paddingY: "3px",
-                        paddingX: "8px",
-                      },
-                      "& .MuiMenuItem-root": {
-                        fontFamily: "Kumbh Sans, sans-serif",
-                        fontSize: "14px",
-                        fontWeight: 500,
-                        color: "#2B2B2B",
-                        lineHeight: "16px",
-                        marginY: "6px",
-                        borderRadius: "12px",
-                        "&:hover": {
-                          backgroundColor: "#DDE2DF !important",
-                        },
-                        "&.Mui-selected": {
-                          backgroundColor: "#EAEDEB !important",
-                        },
-                      },
-                    },
-                  },
-                }}
-              >
-                {menuOptions.map((item, index) => (
-                  <MenuItem key={index} value={item.value}>
-                    {item.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
         </Box>
-        {/* Body */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
-            gap: "12px",
+            width: "200px",
+            padding: "8px 16px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius: "999px",
+            border: "0.5px solid #EAEDEB",
+            boxSizing: "border-box",
           }}
         >
-          {stats.map((item, index) => (
-            <Box
-              key={index}
+          <FormControl fullWidth>
+            <Select
+              id="exam-stats-select"
+              value={option}
+              variant="standard"
+              disableUnderline
+              IconComponent={DropDownArrow}
               sx={{
-                backgroundColor: "#F5F6F5",
-                borderRadius: "16px",
-                padding: "12px 12px 16px 12px",
-                boxSizing: "border-box",
+                "& .MuiSelect-select": {
+                  color: "#2B2B2B",
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "16px",
+                  letterSpacing: "0%",
+                  padding: 0,
+                  minHeight: "unset !important",
+                },
+                "& .MuiSelect-icon": {
+                  top: "30%",
+                },
+              }}
+              onChange={handleChange}
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    borderRadius: "10px",
+                    boxShadow: "0px 2px 16px 0px #EAEDEB",
+                    "& .MuiList-root": {
+                      paddingY: "3px",
+                      paddingX: "8px",
+                    },
+                    "& .MuiMenuItem-root": {
+                      color: "#2B2B2B",
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "16px",
+                      letterSpacing: "0%",
+                      marginY: "6px",
+                      borderRadius: "12px",
+                      "&:hover": {
+                        backgroundColor: "#DDE2DF !important",
+                      },
+                      "&.Mui-selected": {
+                        backgroundColor: "#EAEDEB !important",
+                      },
+                    },
+                  },
+                },
+              }}
+            >
+              {menuOptions.map((item, index) => (
+                <MenuItem key={index} value={item.value}>
+                  {item.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+      </Box>
+      {/* Body */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+        }}
+      >
+        {stats.map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: "flex",
+              width: "136px",
+              padding: "12px 12px 16px 12px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "16px",
+              backgroundColor: "#F5F6F5",
+              boxSizing: "border-box",
+            }}
+          >
+            <Box
+              sx={{
                 display: "flex",
                 flexDirection: "column",
+                alignItems: "flex-start",
                 gap: "4px",
+                flex: "1 0 0",
               }}
             >
               <Typography
                 sx={{
                   color: "#2B2B2B",
-                  fontSize: "14px",
                   fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
                   fontWeight: 600,
                   lineHeight: "24px",
                   letterSpacing: "-0.6%",
@@ -315,16 +357,18 @@ const ExamStats = () => {
               <Box
                 sx={{
                   display: "flex",
-                  flexDirection: "row",
                   alignItems: "center",
                   gap: "4px",
+                  alignSelf: "stretch",
                 }}
               >
                 <Typography
                   sx={{
                     color: "#2B2B2B",
-                    fontSize: "16px",
+                    textAlign: "center",
                     fontFamily: "Kumbh Sans, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
                     fontWeight: 600,
                     lineHeight: "24px",
                     letterSpacing: "-1.4%",
@@ -335,19 +379,20 @@ const ExamStats = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "end",
+                    justifyContent: "flex-end",
                     alignItems: "center",
                     gap: "4px",
-                    width: "79px",
-                    height: "100%",
+                    flex: "1 0 0",
                   }}
                 >
                   <Typography
                     sx={{
                       color: "#2B2B2B",
-                      fontSize: "14px",
+                      textAlign: "right",
+                      fontVariantNumeric: "lining-nums tabular-nums",
                       fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
                       fontWeight: 400,
                       lineHeight: "24px",
                       letterSpacing: "-0.6%",
@@ -355,225 +400,239 @@ const ExamStats = () => {
                   >
                     {item.weightage}%
                   </Typography>
-                  <Box
-                    style={{
-                      height: "100%",
-                      boxSizing: "border-box",
+                  <Typography
+                    sx={{
+                      color: "#4CA054",
+                      textAlign: "right",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "24px",
+                      letterSpacing: "-0.6%",
                     }}
                   >
                     <img src={iconMapping["grow"]} />
-                  </Box>
+                  </Typography>
                 </Box>
               </Box>
             </Box>
-          ))}
-        </Box>
-        {/* Graph */}
-        <Box>
-          <ResponsiveContainer width="100%" height={373}>
-            <BarChart
-              data={chartData}
-              margin={{
-                top: 0,
-                right: 0,
-                left: -30,
-                bottom: 0,
+          </Box>
+        ))}
+      </Box>
+      {/* Graph */}
+      <Box>
+        <ResponsiveContainer width="100%" height={371.4}>
+          <BarChart
+            data={chartData}
+            margin={{
+              top: 0,
+              right: 0,
+              left: -35,
+              bottom: 0,
+            }}
+            barGap={66.25}
+          >
+            <CartesianGrid vertical={false} horizontal={false} />
+            {/* Background */}
+            <Customized
+              component={({ xAxisMap, yAxisMap, offset }) => {
+                const xAxis = xAxisMap[0];
+                const yAxis = yAxisMap[0];
+                const xScale = xAxis.scale;
+                const yMax = yAxis.scale.domain()[1];
+
+                return (
+                  <g>
+                    {chartData.map((entry, index) => {
+                      if (index % 2 === 1) {
+                        const x = xScale(entry.name);
+                        const bandWidth = xScale.bandwidth();
+
+                        const extraForLabels = 42;
+                        const y = yAxis.scale(yMax);
+                        const height = offset.height + extraForLabels;
+
+                        return (
+                          <rect
+                            key={`bg-${index}`}
+                            x={x}
+                            y={y}
+                            width={bandWidth}
+                            height={height}
+                            fill="#F5F6F5"
+                            rx={12}
+                            ry={12}
+                          />
+                        );
+                      }
+                      return null;
+                    })}
+                  </g>
+                );
               }}
-              barGap={48}
-            >
-              <CartesianGrid vertical={false} horizontal={false} />
-              {/* Background */}
-              <Customized
-                component={({ xAxisMap, yAxisMap, offset }) => {
-                  const xAxis = xAxisMap[0];
-                  const yAxis = yAxisMap[0];
-                  const xScale = xAxis.scale;
-                  const yMax = yAxis.scale.domain()[1];
-
-                  return (
-                    <g>
-                      {chartData.map((entry, index) => {
-                        if (index % 2 === 1) {
-                          const x = xScale(entry.name);
-                          const bandWidth = xScale.bandwidth();
-
-                          const extraForLabels = 42;
-                          const y = yAxis.scale(yMax);
-                          const height = offset.height + extraForLabels;
-
-                          return (
-                            <rect
-                              key={`bg-${index}`}
-                              x={x}
-                              y={y}
-                              width={bandWidth}
-                              height={height}
-                              fill="#F5F6F5"
-                              rx={12}
-                              ry={12}
-                            />
-                          );
-                        }
-                        return null;
-                      })}
-                    </g>
-                  );
-                }}
-              />
-              <XAxis
-                dataKey="name"
-                padding={{
-                  left: 0,
-                  right: 0,
-                }}
-                axisLine={false}
-                tickLine={false}
-                tick={{
-                  dy: 14,
-                  style: {
-                    color: "#2B2B2B",
-                    fontSize: "16px",
-                    fontFamily: "Kumbh Sans, sans-serif",
-                    fontWeight: 500,
-                    lineHeight: "16px",
-                    letterSpacing: "0%",
-                  },
-                }}
-              />
-              <YAxis
-                axisLine={false}
-                tickLine={false}
-                tick={{
-                  fill: "#484B48",
-                  fontSize: "12px",
-                  fontWeight: 400,
+            />
+            <XAxis
+              dataKey="name"
+              padding={{
+                left: 0,
+                right: 0,
+              }}
+              axisLine={false}
+              tickLine={false}
+              tick={{
+                dy: 14,
+                style: {
+                  color: "#2B2B2B",
+                  textAlign: "center",
                   fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "16px",
+                  letterSpacing: "0%",
+                },
+              }}
+            />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              tick={{
+                fill: "#484B48",
+                fontFamily: "Kumbh Sans, sans-serif",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "16px",
+                letterSpacing: "0%",
+              }}
+            />
+            <Tooltip
+              cursor={false}
+              content={({ active, payload }) => {
+                if (!active || !payload || !payload.length) return null;
+
+                return (
+                  <Box
+                    style={{
+                      background: "#ffffff",
+                      padding: "12px",
+                      borderRadius: "12px",
+                      boxShadow: "0px 2px 16px 0px #EAEDEB",
+                    }}
+                  >
+                    {payload.map((entry) => {
+                      let label = entry.name;
+                      let value = entry.value;
+
+                      if (entry.dataKey === "failedExams")
+                        label = "Failed Exams";
+                      if (entry.dataKey === "passedExams")
+                        label = "Passed Exams";
+
+                      return (
+                        <Box
+                          key={entry.dataKey}
+                          sx={{
+                            display: "flex",
+                            gap: "8px",
+                            alignItems: "center",
+                            marginY: "4px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-block",
+                              width: "10px",
+                              height: "10px",
+                              borderRadius: "50%",
+                              background: entry.fill,
+                            }}
+                          ></span>
+                          <Typography
+                            sx={{
+                              color: "#2B2B2B",
+                              fontFamily: "Kumbh Sans, sans-serif",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "100%",
+                              letterSpacing: "0%",
+                            }}
+                          >
+                            {label}: {value}
+                          </Typography>
+                        </Box>
+                      );
+                    })}
+                  </Box>
+                );
+              }}
+            />
+            <Legend
+              content={renderLegend}
+              verticalAlign="bottom"
+              wrapperStyle={{
+                paddingTop: "38px",
+              }}
+            />
+            {ticks.map((t, i) => (
+              <ReferenceLine
+                key={`grid-${i}`}
+                y={t}
+                stroke="#EAEDEB"
+                strokeWidth={1}
+                {...(i % 2 === 0 ? { strokeDasharray: "3 3" } : 0)}
+              />
+            ))}
+            <Bar
+              dataKey="failedExams"
+              fill="#CB3A32"
+              barSize={32}
+              radius={[99, 99, 99, 99]}
+              shape={<ShiftedBar />}
+            >
+              <LabelList
+                dataKey="failedExams"
+                position="top"
+                dy={4}
+                style={{
+                  fill: "#CB3A32",
+                  textAlign: "center",
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
                   lineHeight: "16px",
                   letterSpacing: "0%",
                 }}
               />
-              <Tooltip
-                cursor={false}
-                content={({ active, payload }) => {
-                  if (!active || !payload || !payload.length) return null;
-
-                  return (
-                    <Box
-                      style={{
-                        background: "#ffffff",
-                        padding: "12px",
-                        borderRadius: "12px",
-                        boxShadow: "0px 2px 16px 0px #EAEDEB",
-                      }}
-                    >
-                      {payload.map((entry) => {
-                        let label = entry.name;
-                        let value = entry.value;
-
-                        if (entry.dataKey === "failedExams")
-                          label = "Failed Exams";
-                        if (entry.dataKey === "passedExams")
-                          label = "Passed Exams";
-
-                        return (
-                          <Box
-                            key={entry.dataKey}
-                            sx={{
-                              display: "flex",
-                              gap: "8px",
-                              alignItems: "center",
-                              marginY: "4px",
-                            }}
-                          >
-                            <span
-                              style={{
-                                display: "inline-block",
-                                width: "10px",
-                                height: "10px",
-                                borderRadius: "50%",
-                                background: entry.fill,
-                              }}
-                            ></span>
-                            <Typography
-                              sx={{
-                                color: "#2B2B2B",
-                                fontSize: "14px",
-                                fontFamily: "Kumbh Sans, sans-serif",
-                                fontWeight: 500,
-                                lineHeight: "100%",
-                                letterSpacing: "0%",
-                              }}
-                            >
-                              {label}: {value}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
-                    </Box>
-                  );
-                }}
-              />
-              <Legend
-                content={renderLegend}
-                verticalAlign="bottom"
-                wrapperStyle={{
-                  paddingTop: "38px",
-                }}
-              />
-              {ticks.map((t, i) => (
-                <ReferenceLine
-                  key={`grid-${i}`}
-                  y={t}
-                  stroke="#EAEDEB"
-                  strokeWidth={1}
-                  {...(i % 2 === 0 ? { strokeDasharray: "3 3" } : 0)}
-                />
-              ))}
-              <Bar
-                dataKey="failedExams"
-                fill="#CB3A32"
-                barSize={9.5}
-                radius={[99, 99, 99, 99]}
-                shape={<ShiftedBar />}
-              >
-                <LabelList
-                  dataKey="failedExams"
-                  position="top"
-                  dy={4}
-                  style={{
-                    fill: "#CB3A32",
-                    fontSize: "12px",
-                    fontFamily: "Kumbh Sans, sans-serif",
-                    fontWeight: 400,
-                    lineHeight: "16px",
-                    letterSpacing: "0%",
-                  }}
-                />
-              </Bar>
-              <Bar
+            </Bar>
+            <Bar
+              dataKey="passedExams"
+              fill="#4CA054"
+              barSize={32}
+              radius={[99, 99, 99, 99]}
+              shape={<ShiftedBar />}
+            >
+              <LabelList
                 dataKey="passedExams"
-                fill="#4CA054"
-                barSize={9.5}
-                radius={[99, 99, 99, 99]}
-                shape={<ShiftedBar />}
-              >
-                <LabelList
-                  dataKey="passedExams"
-                  position="top"
-                  dy={4}
-                  style={{
-                    fill: "#4CA054",
-                    fontSize: "12px",
-                    fontFamily: "Kumbh Sans, sans-serif",
-                    fontWeight: 400,
-                    lineHeight: "16px",
-                    letterSpacing: "0%",
-                  }}
-                />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </Box>
+                position="top"
+                dy={4}
+                style={{
+                  fill: "#4CA054",
+                  textAlign: "center",
+                  fontFamily: "Kumbh Sans, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "16px",
+                  letterSpacing: "0%",
+                }}
+              />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
       </Box>
     </Box>
   );

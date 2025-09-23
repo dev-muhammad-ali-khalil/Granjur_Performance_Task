@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import GridLeft from "./GridLeft/GridLeft";
 import GridRight from "./GridRight/GridRight";
 
@@ -8,17 +7,15 @@ const GridView = () => {
   return (
     <Box
       sx={{
-        padding: "12px 16px",
+        display: "flex",
+        padding: "20px 24px 24px 24px",
+        alignItems: "self-start",
+        gap: "16px",
+        alignSelf: "stretch",
       }}
     >
-      <Grid container spacing="16px">
-        <Grid size={8}>
-          <GridLeft />
-        </Grid>
-        <Grid size={4}>
-          <GridRight />
-        </Grid>
-      </Grid>
+      <GridLeft />
+      <GridRight />
     </Box>
   );
 };

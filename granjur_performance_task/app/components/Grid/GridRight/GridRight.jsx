@@ -8,8 +8,11 @@ const GridRight = () => {
     <Box
       sx={{
         display: "flex",
+        width: "340px",
         flexDirection: "column",
+        alignItems: "flex-start",
         gap: "16px",
+        alignSelf: "stretch",
       }}
     >
       <Exams />

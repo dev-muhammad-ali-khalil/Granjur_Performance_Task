@@ -33,15 +33,15 @@ const MenuBar = (props) => {
   return (
     <Box
       sx={{
-        position: "relative",
-        backgroundColor: "#FFFFFF",
-        height: "100%",
-        boxShadow: "0px 2px 16px 0px #EAEDEB",
-        boxSizing: "border-box",
-        padding: "24px 20px",
         display: "flex",
+        height: "100%",
+        padding: "24px 20px",
         flexDirection: "column",
-        gap: "16px",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        backgroundColor: "#FFFFFF",
+        boxShadow: "0px 2px 16px 0px #EAEDEB",
+        position: "relative",
         zIndex: 0,
         "&::after": {
           content: '""',
@@ -60,69 +60,105 @@ const MenuBar = (props) => {
           display: "flex",
           flexDirection: "column",
           gap: "16px",
+          flex: "1 0 0",
+          alignSelf: "stretch",
         }}
       >
-        <Link
-          href="#"
-          style={{
-            textDecoration: "none",
-            marginRight: "29.48px",
+        {/* Logo */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "3px",
+            alignSelf: "stretch",
           }}
         >
-          <img src="/assets/logo.svg" alt="logo" />
-        </Link>
-        <Divider orientation="horizontal" sx={{ borderColor: "#EAEDEB" }} />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-        }}
-      >
-        {menuItems.map((item, index) => (
-          <Link key={index} href="#" style={{ textDecoration: "none" }}>
-            <Box
-              sx={{
-                backgroundColor: index === 0 ? "#212121" : "transparent",
-                color: index === 0 ? "#FFFFFF" : "#484B48",
-                padding: "12px",
-                boxSizing: "border-box",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                gap: "12px",
-                borderRadius: "16px",
-                transition: "background-color 0.1s, color 0.1s",
-                "&:hover": {
-                  backgroundColor: "#212121",
-                  color: "#FFFFFF",
-                },
-              }}
-              onMouseEnter={() => setIsHovered({ [index]: true })}
-              onMouseLeave={() => setIsHovered({ [index]: false })}
-            >
-              <Image
-                src={isHovered[index] ? item.activeIcon : item.defaultIcon}
-                alt={item.name}
-                width={24}
-                height={24}
-              />
-              <Typography
+          <Link
+            href="#"
+            style={{
+              textDecoration: "none",
+              marginRight: "29.48px",
+            }}
+          >
+            <img src="/assets/logo.svg" alt="logo" />
+          </Link>
+        </Box>
+        {/* Divider */}
+        <Box>
+          <Divider
+            orientation="horizontal"
+            sx={{
+              borderWidth: "1px",
+              borderColor: "#EAEDEB",
+              alignSelf: "stretch",
+            }}
+          />
+        </Box>
+        {/* Navigation */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            alignSelf: "stretch",
+          }}
+        >
+          {menuItems.map((item, index) => (
+            <Link key={index} href="#" style={{ textDecoration: "none" }}>
+              <Box
                 sx={{
-                  fontSize: "14px",
-                  fontFamily: "Kumbh Sans, sans-serif",
-                  fontWeight: 500,
-                  lineHeight: "100%",
-                  letterSpacing: "-1.9%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
                 }}
               >
-                {item.name}
-              </Typography>
-            </Box>
-          </Link>
-        ))}
+                <Box
+                  sx={{
+                    display: "flex",
+                    padding: "12px",
+                    alignItems: "center",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    borderRadius: "16px",
+                    backgroundColor: index === 0 ? "#212121" : "transparent",
+                    color: index === 0 ? "#FFFFFF" : "#484B48",
+                    transition: "background-color 0.1s, color 0.1s",
+                    "&:hover": {
+                      backgroundColor: "#212121",
+                      color: "#FFFFFF",
+                    },
+                  }}
+                  onMouseEnter={() => setIsHovered({ [index]: true })}
+                  onMouseLeave={() => setIsHovered({ [index]: false })}
+                >
+                  <Image
+                    src={isHovered[index] ? item.activeIcon : item.defaultIcon}
+                    alt={item.name}
+                    width={24}
+                    height={24}
+                  />
+                  <Typography
+                    sx={{
+                      fontFamily: "Kumbh Sans, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "100%",
+                      letterSpacing: "-1.9%",
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                </Box>
+              </Box>
+            </Link>
+          ))}
+        </Box>
       </Box>
+      {/* Sidebar Collapse Button */}
       <IconButton
         sx={{
           backgroundColor: "#EAEDEB",

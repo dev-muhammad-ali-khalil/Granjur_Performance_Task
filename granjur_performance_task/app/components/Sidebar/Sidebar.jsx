@@ -6,17 +6,16 @@ import IconBar from "./IconBar/IconBar";
 import MenuBar from "./MenuBar/MenuBar";
 
 const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
     <Box
       sx={{
-        height: "100vh",
         display: "flex",
         flexDirection: "row",
+        height: "100vh",
         position: "sticky",
         top: 0,
-        flexShrink: 0,
       }}
     >
       <IconBar isCollapsed={isCollapsed} />
