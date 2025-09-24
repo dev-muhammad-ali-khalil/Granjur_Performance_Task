@@ -8,10 +8,12 @@ const GridView = () => {
     <Box
       sx={(theme) => ({
         display: "flex",
-        padding: "20px 24px 24px 24px",
         alignItems: "flex-start",
         gap: "16px",
         alignSelf: "stretch",
+        [theme.breakpoints.up("xs")]: {
+          padding: "20px 24px 24px 24px",
+        },
         [theme.breakpoints.up("lg")]: {
           padding: "12px 16px",
         },

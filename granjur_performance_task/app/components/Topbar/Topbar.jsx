@@ -14,7 +14,7 @@ const Topbar = () => {
         alignItems: "center",
         alignSelf: "stretch",
         backgroundColor: "#F5F6F5",
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.up("md")]: {
           padding: "12px 24px",
         },
         [theme.breakpoints.up("lg")]: {
@@ -29,9 +29,9 @@ const Topbar = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: { sm: "8px", lg: "16px" },
+          gap: { md: "8px", lg: "16px" },
           flex: { lg: "1 0 0" },
-          flexShrink: { sm: "0", lg: "unset" },
+          flexShrink: { md: "0", lg: "unset" },
         }}
       >
         <Box
@@ -39,9 +39,9 @@ const Topbar = () => {
             display: "flex",
             padding: { lg: "0 12px" },
             alignItems: "center",
-            gap: { sm: "32px", lg: "8px" },
+            gap: { md: "32px", lg: "8px" },
             alignSelf: { lg: "stretch" },
-            flexShrink: { sm: "0", lg: "unset" },
+            flexShrink: { md: "0", lg: "unset" },
           }}
         >
           <Box sx={{ display: { xs: "block", lg: "none" } }}>
@@ -73,7 +73,7 @@ const Topbar = () => {
       </Box>
       <Box
         sx={{
-          display: { xs: "flex", lg: "none" },
+          display: { md: "flex", lg: "none" },
           justifyContent: "flex-end",
           alignItems: "center",
           gap: "40px",

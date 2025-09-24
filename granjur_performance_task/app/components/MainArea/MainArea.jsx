@@ -12,6 +12,7 @@ const MainArea = () => {
         flexDirection: "column",
         alignItems: "center",
         flex: "1 0 0",
+        overflow: "hidden",
       }}
     >
       {/* Top Bar + Navigation Bar */}

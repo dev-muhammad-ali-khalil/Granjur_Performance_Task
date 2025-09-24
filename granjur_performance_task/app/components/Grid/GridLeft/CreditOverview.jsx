@@ -130,7 +130,7 @@ const CreditOverview = () => {
             key={index}
             sx={{
               display: "flex",
-              width: "128px",
+              width: { md: "161px", lg: "128px" },
               minWidth: "128px",
               padding: "12px 24px 16px 12px",
               flexDirection: "column",
@@ -215,7 +215,7 @@ const CreditOverview = () => {
                     fontWeight: 400,
                     lineHeight: "16px",
                     letterSpacing: "0%",
-                    marginBottom: "-9px",
+                    marginBottom: { md: "-10px", lg: "-9px" },
                   }}
                 >
                   Credits

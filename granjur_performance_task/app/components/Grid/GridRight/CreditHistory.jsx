@@ -128,10 +128,11 @@ const CreditHistory = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: { lg: "column" },
           alignItems: "flex-start",
           gap: "12px",
           alignSelf: "stretch",
+          overflowX: { md: "scroll", lg: "hidden" },
         }}
       >
         {creditListing.map((item, index) => (
@@ -139,12 +140,15 @@ const CreditHistory = () => {
             key={index}
             sx={{
               display: "flex",
+              width: { md: "316px", lg: "auto" },
+              minWidth: { md: "316px", lg: "auto" },
               padding: "12px 12px 16px 12px",
               alignItems: "flex-end",
               gap: "12px",
-              alignSelf: "stretch",
+              alignSelf: { lg: "stretch" },
               borderRadius: "12px",
               backgroundColor: "#F5F6F5",
+              boxSizing: "border-box",
             }}
           >
             <img src={item.source} alt={item.title} />

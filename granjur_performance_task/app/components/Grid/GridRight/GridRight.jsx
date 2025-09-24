@@ -7,7 +7,7 @@ const GridRight = () => {
   return (
     <Box
       sx={{
-        display: "flex",
+        display: { md: "none", lg: "flex" },
         width: "340px",
         flexDirection: "column",
         alignItems: "flex-start",

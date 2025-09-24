@@ -127,7 +127,6 @@ const DegreeProgress = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                alignSelf: "stretch",
                 gap: "4px",
                 flex: "1 0 0",
               }}
@@ -141,6 +140,7 @@ const DegreeProgress = () => {
                   fontWeight: 600,
                   lineHeight: "24px",
                   letterSpacing: "-0.6%",
+                  alignSelf: "stretch",
                 }}
               >
                 My Credits
@@ -191,7 +191,6 @@ const DegreeProgress = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "flex-start",
-                alignSelf: "stretch",
                 gap: "4px",
                 flex: "1 0 0",
               }}
@@ -205,6 +204,7 @@ const DegreeProgress = () => {
                   fontWeight: 600,
                   lineHeight: "24px",
                   letterSpacing: "-0.6%",
+                  alignSelf: "stretch",
                 }}
               >
                 Active Courses
@@ -238,7 +238,6 @@ const DegreeProgress = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "flex-start",
-                alignSelf: "stretch",
                 gap: "4px",
                 flex: "1 0 0",
               }}
@@ -252,6 +251,7 @@ const DegreeProgress = () => {
                   fontWeight: 600,
                   lineHeight: "24px",
                   letterSpacing: "-0.6%",
+                  alignSelf: "stretch",
                 }}
               >
                 Active Exams

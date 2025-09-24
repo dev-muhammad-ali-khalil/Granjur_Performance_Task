@@ -587,7 +587,7 @@ const ExamStats = () => {
               content={renderLegend}
               verticalAlign="bottom"
               wrapperStyle={{
-                paddingTop: "38px",
+                paddingTop: "40px",
               }}
             />
             {ticks.map((t, i) => (

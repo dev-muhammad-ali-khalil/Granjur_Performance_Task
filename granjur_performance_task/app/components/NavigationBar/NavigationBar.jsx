@@ -41,7 +41,7 @@ const NavigationBar = () => {
           padding: "4px",
           alignItems: "center",
           gap: "4px",
-          alignSelf: { xs: "stretch", lg: "auto" },
+          alignSelf: { md: "stretch", lg: "auto" },
           borderRadius: "24px",
           backgroundColor: "#EAEDEB",
           [theme.breakpoints.up("lg")]: {
