@@ -7,14 +7,20 @@ import { iconMapping } from "../../utils/mapping";
 const Topbar = () => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         display: "flex",
-        padding: "12px 24px",
+        padding: "12px 16px",
         justifyContent: "space-between",
         alignItems: "center",
         alignSelf: "stretch",
         backgroundColor: "#F5F6F5",
-      }}
+        [theme.breakpoints.up("lg")]: {
+          padding: "12px 16px",
+        },
+        [theme.breakpoints.up("xl")]: {
+          padding: "12px 24px",
+        },
+      })}
     >
       <Box
         sx={{

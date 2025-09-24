@@ -148,6 +148,7 @@ const MenuBar = (props) => {
                       fontWeight: 500,
                       lineHeight: "100%",
                       letterSpacing: "-1.9%",
+                      flex: "1 0 0",
                     }}
                   >
                     {item.name}

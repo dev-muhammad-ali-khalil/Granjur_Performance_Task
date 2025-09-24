@@ -78,7 +78,7 @@ const DegreeProgress = () => {
             justifyContent: "space-between",
             alignItems: "flex-start",
             flex: "1 0 0",
-            gap: "14px",
+            gap: "20px",
           }}
         >
           <Box

@@ -20,17 +20,23 @@ const menuItems = [
 const NavigationBar = () => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         padding: "12px 24px 0px 24px",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "20px",
         alignSelf: "stretch",
-      }}
+        [theme.breakpoints.up("lg")]: {
+          padding: "12px 16px 0px 16px",
+        },
+        [theme.breakpoints.up("xl")]: {
+          padding: "12px 24px 0px 24px",
+        },
+      })}
     >
       <Box
-        sx={{
+        sx={(theme) => ({
           display: "flex",
           width: "600px",
           padding: "4px",
@@ -38,7 +44,13 @@ const NavigationBar = () => {
           gap: "4px",
           borderRadius: "24px",
           backgroundColor: "#EAEDEB",
-        }}
+          [theme.breakpoints.up("lg")]: {
+            width: "480px",
+          },
+          [theme.breakpoints.up("xl")]: {
+            width: "600px",
+          },
+        })}
       >
         {menuItems.map((item, index) => (
           <Box

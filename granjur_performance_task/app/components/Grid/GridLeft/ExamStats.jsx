@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useTheme, useMediaQuery } from "@mui/material";
 import {
   ResponsiveContainer,
   BarChart,
@@ -158,6 +159,19 @@ const DropDownArrow = (props) => (
 
 const ExamStats = () => {
   const [option, setOption] = useState(menuOptions[0]["value"]);
+  const theme = useTheme();
+  const isXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+  // ----- Bar Gap -----
+  let barGap = 0;
+
+  if (isXl) {
+    barGap = 66.25;
+  } else if (isLg) {
+    barGap = 48;
+  } else {
+    barGap = 32;
+  }
 
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -431,7 +445,7 @@ const ExamStats = () => {
               left: -35,
               bottom: 0,
             }}
-            barGap={66.25}
+            barGap={barGap}
           >
             <CartesianGrid vertical={false} horizontal={false} />
             {/* Background */}

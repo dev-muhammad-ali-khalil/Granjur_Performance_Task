@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { iconMapping } from "../../../utils/mapping";
 import Image from "next/image";
 import Typography from "@mui/material/Typography";

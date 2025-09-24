@@ -6,13 +6,19 @@ import GridRight from "./GridRight/GridRight";
 const GridView = () => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         padding: "20px 24px 24px 24px",
-        alignItems: "self-start",
+        alignItems: "flex-start",
         gap: "16px",
         alignSelf: "stretch",
-      }}
+        [theme.breakpoints.up("lg")]: {
+          padding: "12px 16px",
+        },
+        [theme.breakpoints.up("xl")]: {
+          padding: "20px 24px 24px 24px",
+        },
+      })}
     >
       <GridLeft />
       <GridRight />
