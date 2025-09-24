@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        display: "flex",
+        display: { xs: "none", lg: "flex" },
         flexDirection: "row",
         height: "100vh",
         position: "sticky",

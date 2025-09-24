@@ -21,5 +21,6 @@ export const iconMapping = {
     star: '/assets/star.svg',
     starOutline: '/assets/star-outline.svg',
     speedoMeter: '/assets/speedometer.svg',
-    user: '/assets/user.svg'
+    user: '/assets/user.svg',
+    hamburger: '/assets/hamburger.svg',
 };

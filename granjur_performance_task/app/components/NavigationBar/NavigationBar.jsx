@@ -38,10 +38,10 @@ const NavigationBar = () => {
       <Box
         sx={(theme) => ({
           display: "flex",
-          width: "600px",
           padding: "4px",
           alignItems: "center",
           gap: "4px",
+          alignSelf: { xs: "stretch", lg: "auto" },
           borderRadius: "24px",
           backgroundColor: "#EAEDEB",
           [theme.breakpoints.up("lg")]: {
