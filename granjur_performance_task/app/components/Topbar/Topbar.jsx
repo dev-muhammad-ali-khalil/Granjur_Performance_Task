@@ -1,7 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import Link from "next/link";
 import { iconMapping } from "../../utils/mapping";
 
 const Topbar = () => {
@@ -9,11 +11,13 @@ const Topbar = () => {
     <Box
       sx={(theme) => ({
         display: "flex",
-        // padding: "12px 16px",
         justifyContent: "space-between",
         alignItems: "center",
         alignSelf: "stretch",
         backgroundColor: "#F5F6F5",
+        [theme.breakpoints.up("xs")]: {
+          padding: "6px 0px",
+        },
         [theme.breakpoints.up("md")]: {
           padding: "12px 24px",
         },
@@ -29,7 +33,7 @@ const Topbar = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: { md: "8px", lg: "16px" },
+          gap: { xs: "6px", md: "8px", lg: "16px" },
           flex: { lg: "1 0 0" },
           flexShrink: { md: "0", lg: "unset" },
         }}
@@ -45,7 +49,19 @@ const Topbar = () => {
           }}
         >
           <Box sx={{ display: { xs: "block", lg: "none" } }}>
-            <Image src="/assets/logo.svg" alt="Logo" width={154} height={40} />
+            <Link
+              href="#"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <Image
+                src="/assets/logo.svg"
+                alt="Logo"
+                width={154}
+                height={40}
+              />
+            </Link>
           </Box>
           <Box sx={{ display: { xs: "none", lg: "block" } }}>
             <Image
@@ -76,35 +92,41 @@ const Topbar = () => {
           display: { md: "flex", lg: "none" },
           justifyContent: "flex-end",
           alignItems: "center",
-          gap: "40px",
+          gap: { xs: "12px", md: "40px" },
         }}
       >
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: "12px",
+            gap: { md: "12px" },
           }}
         >
-          <Box
+          <Button
             sx={{
-              display: "flex",
-              padding: "8px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              aspectRatio: "1/1",
-              borderRadius: "999px",
-              backgroundColor: "#EAEDEB",
+              all: "unset",
             }}
           >
-            <Image
-              src={iconMapping["hamburger"]}
-              alt="Hamburger"
-              width={20}
-              height={20}
-            />
-          </Box>
+            <Box
+              sx={{
+                display: "flex",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "8px",
+                aspectRatio: "1/1",
+                borderRadius: "999px",
+                backgroundColor: "#EAEDEB",
+              }}
+            >
+              <Image
+                src={iconMapping["hamburger"]}
+                alt="Hamburger"
+                width={20}
+                height={20}
+              />
+            </Box>
+          </Button>
         </Box>
       </Box>
     </Box>

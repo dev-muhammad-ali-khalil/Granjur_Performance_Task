@@ -11,12 +11,12 @@ const DegreeProgress = () => {
     <Box
       sx={{
         display: "flex",
-        padding: "20px 20px 24px 20px",
+        padding: { xs: "8px 8px 12px 8px", md: "20px 20px 24px 20px" },
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "20px",
         alignSelf: "stretch",
-        borderRadius: "24px",
+        borderRadius: { xs: "16px", md: "24px" },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
@@ -27,6 +27,7 @@ const DegreeProgress = () => {
           display: "flex",
           alignItems: "center",
           gap: "12px",
+          alignSelf: { xs: "stretch", md: "unset" },
         }}
       >
         <Box
@@ -65,7 +66,8 @@ const DegreeProgress = () => {
       <Box
         sx={{
           display: "flex",
-          alignItems: "flex-start",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "flex-end",
           gap: "20px",
           alignSelf: "stretch",
         }}
@@ -75,10 +77,11 @@ const DegreeProgress = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            justifyContent: { md: "space-between" },
             alignItems: "flex-start",
-            flex: "1 0 0",
-            gap: "20px",
+            flex: { md: "1 0 0" },
+            gap: { xs: "12px", md: "20px" },
+            alignSelf: { xs: "stretch", md: "unset" },
           }}
         >
           <Box
@@ -117,8 +120,9 @@ const DegreeProgress = () => {
           <Box
             sx={{
               display: "flex",
-              alignItems: "flex-end",
-              gap: "12px",
+              justifyContent: { xs: "space-between", md: "unset" },
+              alignItems: { xs: "flex-start", md: "flex-end" },
+              gap: { md: "12px" },
               alignSelf: "stretch",
             }}
           >
@@ -126,9 +130,11 @@ const DegreeProgress = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: { xs: "space-between", md: "unset" },
                 alignItems: "flex-start",
-                gap: "4px",
-                flex: "1 0 0",
+                gap: { md: "4px" },
+                flex: { md: "1 0 0" },
+                alignSelf: { xs: "stretch", md: "unset" },
               }}
             >
               <Typography
@@ -192,7 +198,7 @@ const DegreeProgress = () => {
                 justifyContent: "center",
                 alignItems: "flex-start",
                 gap: "4px",
-                flex: "1 0 0",
+                flex: { md: "1 0 0" },
               }}
             >
               <Typography
@@ -239,7 +245,7 @@ const DegreeProgress = () => {
                 justifyContent: "center",
                 alignItems: "flex-start",
                 gap: "4px",
-                flex: "1 0 0",
+                flex: { md: "1 0 0" },
               }}
             >
               <Typography
@@ -276,29 +282,32 @@ const DegreeProgress = () => {
         <Box
           sx={{
             position: "relative",
+            display: "flex",
           }}
         >
-          <img
+          <Box
+            component="img"
             src="/assets/video-thumbnail.png"
             alt="Video Thumbnail"
-            width="184px"
-            height="104px"
-            style={{
+            sx={{
+              width: { xs: "100%", md: "184px" },
               borderRadius: "16px",
               objectFit: "cover",
               backgroundRepeat: "no-repeat",
             }}
           />
           <Box
-            style={{
+            sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               padding: "8px",
               gap: "8px",
               borderRadius: "999px",
-              background:
-                "linear-gradient(0deg, #8B8C8B 0%, #8B8C8B 100%, #8B8C8B)",
+              background: {
+                xs: "#00000033",
+                md: "linear-gradient(0deg, #8B8C8B 0%, #8B8C8B 100%), #8B8C8B",
+              },
               position: "absolute",
               top: "50%",
               left: "50%",

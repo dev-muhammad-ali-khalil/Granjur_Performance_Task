@@ -64,12 +64,12 @@ const Exams = () => {
     <Box
       sx={{
         display: "flex",
-        padding: "20px 20px 24px 20px",
+        padding: { xs: "8px 8px 12px 8px", md: "20px 20px 24px 20px" },
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "16px",
         alignSelf: "stretch",
-        borderRadius: "24px",
+        borderRadius: { xs: "16px", md: "24px" },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
@@ -182,7 +182,7 @@ const Exams = () => {
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              flexDirection: { md: "row", lg: "column" },
+              flexDirection: { xs: "column", md: "row", lg: "column" },
               gap: "12px",
               alignSelf: "stretch",
             }}
@@ -196,7 +196,7 @@ const Exams = () => {
                   alignItems: "center",
                   gap: "8px",
                   flex: { md: "1 0 0", lg: "none" },
-                  alignSelf: { lg: "stretch" },
+                  alignSelf: { xs: "stretch", md: "unset", lg: "stretch" },
                   borderRadius: "12px",
                   backgroundColor: "#F5F6F5",
                 }}
@@ -316,7 +316,7 @@ const Exams = () => {
             sx={{
               display: "flex",
               alignItems: "flex-start",
-              flexDirection: { md: "row", lg: "column" },
+              flexDirection: { xs: "column", md: "row", lg: "column" },
               gap: "12px",
               alignSelf: "stretch",
             }}
@@ -332,7 +332,7 @@ const Exams = () => {
                   alignItems: "flex-start",
                   gap: "12px",
                   flex: { md: "1 0 0", lg: "none" },
-                  alignSelf: { lg: "stretch" },
+                  alignSelf: { xs: "stretch", md: "unset", lg: "stretch" },
                   borderRadius: "12px",
                   backgroundColor: "#F5F6F5",
                 }}
@@ -475,6 +475,7 @@ const Exams = () => {
                         </Pie>
                       </PieChart>
                     </ResponsiveContainer>
+                    {/* Chart Label */}
                     <Box
                       sx={{
                         marginTop: -2.6,

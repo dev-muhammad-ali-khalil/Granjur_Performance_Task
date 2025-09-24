@@ -14,7 +14,7 @@ const GridLeft = () => {
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "16px",
-        flex: "1 0 0",
+        flex: { md: "1 0 0" },
         alignItems: "stretch",
         overflow: "hidden",
       }}

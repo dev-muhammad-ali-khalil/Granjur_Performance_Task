@@ -12,6 +12,9 @@ const GridView = () => {
         gap: "16px",
         alignSelf: "stretch",
         [theme.breakpoints.up("xs")]: {
+          padding: "8px 0px 0px 0px",
+        },
+        [theme.breakpoints.up("md")]: {
           padding: "20px 24px 24px 24px",
         },
         [theme.breakpoints.up("lg")]: {

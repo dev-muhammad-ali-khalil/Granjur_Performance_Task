@@ -13,6 +13,7 @@ const MainArea = () => {
         alignItems: "center",
         flex: "1 0 0",
         overflow: "hidden",
+        padding: { xs: "0px 8px 16px 8px", md: "0px" },
       }}
     >
       {/* Top Bar + Navigation Bar */}
@@ -22,6 +23,7 @@ const MainArea = () => {
           paddingBottom: "8px",
           flexDirection: "column",
           alignItems: "flex-start",
+          gap: { xs: "12px", md: "0px" },
           alignSelf: "stretch",
           backgroundColor: "#F5F6F5",
         }}

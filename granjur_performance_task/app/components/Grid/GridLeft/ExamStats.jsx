@@ -102,6 +102,7 @@ const renderLegend = (props) => {
         gap: "16px",
         alignSelf: "stretch",
         flexWrap: "wrap",
+        marginLeft: "35px",
       }}
     >
       {payload.map((entry, index) => (
@@ -162,15 +163,28 @@ const ExamStats = () => {
   const theme = useTheme();
   const isXl = useMediaQuery(theme.breakpoints.up("xl"));
   const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMd = useMediaQuery(theme.breakpoints.up("md"));
   // ----- Bar Gap -----
   let barGap = 0;
+  let barSize = 0;
+  let labelSize = 0;
 
   if (isXl) {
     barGap = 66.25;
+    barSize = 32;
+    labelSize = "16px";
   } else if (isLg) {
     barGap = 48;
+    barSize = 32;
+    labelSize = "16px";
+  } else if (isMd) {
+    barGap = 48;
+    barSize = 32;
+    labelSize = "16px";
   } else {
-    barGap = 32;
+    barGap = 8;
+    barSize = 20.5;
+    labelSize = "12px";
   }
 
   const handleChange = (event) => {
@@ -181,11 +195,11 @@ const ExamStats = () => {
     <Box
       sx={{
         display: "flex",
-        padding: "20px 20px 24px 20px",
+        padding: { xs: "8px 8px 12px 8px", md: "20px 20px 24px 20px" },
         flexDirection: "column",
         gap: "16px",
         alignSelf: "stretch",
-        borderRadius: "24px",
+        borderRadius: { xs: "16px", md: "24px" },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
@@ -252,7 +266,7 @@ const ExamStats = () => {
         <Box
           sx={{
             display: "flex",
-            width: "200px",
+            width: { xs: "120px", md: "200px" },
             padding: "8px 16px",
             justifyContent: "space-between",
             alignItems: "center",
@@ -328,8 +342,9 @@ const ExamStats = () => {
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           alignItems: "center",
-          gap: "12px",
+          gap: { xs: "8px", md: "12px" },
         }}
       >
         {stats.map((item, index) => (
@@ -337,8 +352,8 @@ const ExamStats = () => {
             key={index}
             sx={{
               display: "flex",
-              width: "136px",
-              padding: "12px 12px 16px 12px",
+              width: { xs: "140px", md: "136px" },
+              padding: { xs: "8px 8px 12px 8px", md: "12px 12px 16px 12px" },
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "16px",
@@ -499,8 +514,8 @@ const ExamStats = () => {
                 style: {
                   color: "#2B2B2B",
                   textAlign: "center",
-                  fontFamily: "Kumbh Sans, sans-serif",
-                  fontSize: "16px",
+                  fontFamily: "Kumbh Sans, sans-serif !important",
+                  fontSize: labelSize,
                   fontStyle: "normal",
                   fontWeight: 500,
                   lineHeight: "16px",
@@ -587,9 +602,10 @@ const ExamStats = () => {
               content={renderLegend}
               verticalAlign="bottom"
               wrapperStyle={{
-                paddingTop: "40px",
+                paddingTop: "35px",
               }}
             />
+            {/* Background Grid */}
             {ticks.map((t, i) => (
               <ReferenceLine
                 key={`grid-${i}`}
@@ -602,7 +618,7 @@ const ExamStats = () => {
             <Bar
               dataKey="failedExams"
               fill="#CB3A32"
-              barSize={32}
+              barSize={barSize}
               radius={[99, 99, 99, 99]}
               shape={<ShiftedBar />}
             >
@@ -625,7 +641,7 @@ const ExamStats = () => {
             <Bar
               dataKey="passedExams"
               fill="#4CA054"
-              barSize={32}
+              barSize={barSize}
               radius={[99, 99, 99, 99]}
               shape={<ShiftedBar />}
             >

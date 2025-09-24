@@ -54,12 +54,12 @@ const CreditOverview = () => {
     <Box
       sx={{
         display: "flex",
-        padding: "20px 20px 24px 20px",
+        padding: { xs: "8px 8px 12px 8px", md: "20px 20px 24px 20px" },
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "20px",
         alignSelf: "stretch",
-        borderRadius: "24px",
+        borderRadius: { xs: "16px", md: "24px" },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
@@ -130,12 +130,13 @@ const CreditOverview = () => {
             key={index}
             sx={{
               display: "flex",
-              width: { md: "161px", lg: "128px" },
-              minWidth: "128px",
+              width: { xs: "138px", md: "161px", lg: "128px" },
+              minWidth: { xs: "125px", md: "128px" },
               padding: "12px 24px 16px 12px",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "4px",
+              // flex: { xs: "1 0 0", md: "unset" },
               borderRadius: "12px",
               backgroundColor: "#F5F6F5",
               boxSizing: "border-box",
@@ -215,7 +216,7 @@ const CreditOverview = () => {
                     fontWeight: 400,
                     lineHeight: "16px",
                     letterSpacing: "0%",
-                    marginBottom: { md: "-10px", lg: "-9px" },
+                    marginBottom: { xs: "-11px", md: "-10px", lg: "-9px" },
                   }}
                 >
                   Credits

@@ -43,12 +43,12 @@ const CreditHistory = () => {
     <Box
       sx={{
         display: "flex",
-        padding: "20px 20px 24px 20px",
+        padding: { xs: "8px 8px 12px 8px", md: "20px 20px 24px 20px" },
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "16px",
         alignSelf: "stretch",
-        borderRadius: "24px",
+        borderRadius: { xs: "16px", md: "24px" },
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 2px 16px 0px #EAEDEB",
       }}
@@ -128,7 +128,7 @@ const CreditHistory = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { lg: "column" },
+          flexDirection: { xs: "column", md: "row", lg: "column" },
           alignItems: "flex-start",
           gap: "12px",
           alignSelf: "stretch",
@@ -140,12 +140,12 @@ const CreditHistory = () => {
             key={index}
             sx={{
               display: "flex",
-              width: { md: "316px", lg: "auto" },
-              minWidth: { md: "316px", lg: "auto" },
+              width: { xs: "auto", md: "316px", lg: "auto" },
+              minWidth: { xs: "auto", md: "316px", lg: "auto" },
               padding: "12px 12px 16px 12px",
               alignItems: "flex-end",
               gap: "12px",
-              alignSelf: { lg: "stretch" },
+              alignSelf: { xs: "stretch", md: "unset", lg: "stretch" },
               borderRadius: "12px",
               backgroundColor: "#F5F6F5",
               boxSizing: "border-box",
